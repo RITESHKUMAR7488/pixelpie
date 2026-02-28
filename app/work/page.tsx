@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function WorkPage() {
   const videos = [
     { type: "youtube", src: "NcMvBQ3aN1A" },
-    { type: "youtube", src: "i1WdGGVuQUU" }, // If this still says unavailable, the owner disabled embedding.
+    { type: "youtube", src: "i1WdGGVuQUU" },
     { type: "local", src: "/hero-video.mp4" }, 
   ];
 
@@ -18,7 +18,8 @@ export default function WorkPage() {
     "DSC02856.jpg",
   ];
 
-  const containerVariants = {
+  // THE FIX: Explicitly typing these as Variants so TypeScript doesn't panic
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -26,7 +27,7 @@ export default function WorkPage() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
   };
@@ -106,7 +107,6 @@ export default function WorkPage() {
               variants={itemVariants}
               className="relative break-inside-avoid rounded-xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg"
             >
-              {/* Mobile Fix: Overlay and text visible on mobile */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#E50914]/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end p-6">
                 <p className="text-white font-bold tracking-wider opacity-100 md:opacity-0 translate-y-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
                   View Project &rarr;
