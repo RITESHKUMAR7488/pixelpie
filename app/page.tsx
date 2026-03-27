@@ -1,199 +1,251 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const services = [
     {
-      title: "Social Media Strategy & Management",
-      hook: "Planned Content. Consistent Growth.",
-      desc: "We build structured content calendars that ensure your brand shows up consistently and strategically across platforms. From trend-based reels to storytelling posts, our approach focuses on audience engagement, brand recall, and long-term social media growth.",
+      title: "SOCIAL MEDIA STRATEGY",
+      desc: "Structured content calendars, trend-based reels, and storytelling posts built to maximize engagement, brand recall, and long-term platform growth.",
+      image: "/work/1.jpg"
     },
     {
-      title: "Performance Marketing & Paid Ads",
-      hook: "Data-Driven Campaigns That Convert",
-      desc: "Our performance marketing strategy combines audience targeting, ad creatives, A/B testing, and conversion tracking to maximise ROI. We continuously analyse campaign data to optimise results and turn attention into measurable business growth.",
+      title: "PERFORMANCE MARKETING",
+      desc: "Audience targeting, A/B testing, and conversion tracking combined into campaigns that maximize ROI and turn attention into business growth.",
+      image: "/work/DSC02112.jpg"
     },
     {
-      title: "Brand Design & Visual Identity",
-      hook: "Design Systems That Strengthen Your Brand",
-      desc: "We create brand-consistent visuals, digital assets, and communication designs that elevate your brand presence. From social media creatives to campaign graphics, every design is built to maintain clarity, consistency, and premium appeal.",
-    },
-    {
-      title: "Video Editing & Content Optimization",
-      hook: "Editing Designed for Engagement",
-      desc: "We transform raw footage into platform-optimized content using storytelling, pacing, motion graphics, and sound design. Whether it’s reels, ads, or brand films, our editing process focuses on retention, clarity, and impact.",
-    },
-    {
-      title: "Production, Shoots & Event Coverage",
-      hook: "High-Quality Visual Production",
-      desc: "From brand shoots and campaign videos to event coverage, we manage the entire production workflow — planning, filming, and post-production. The result is cinematic content aligned with your brand identity.",
-    },
-    {
-      title: "Strategic Copywriting",
-      hook: "Messaging That Drives Action",
-      desc: "Our copywriting blends brand voice, audience psychology, and marketing frameworks to craft captions, scripts, and campaigns that resonate with your audience while supporting your overall marketing strategy.",
+      title: "BRAND DESIGN & IDENTITY",
+      desc: "Brand-consistent visuals and campaign graphics built for clarity, consistency, and premium presence at every brand touchpoint.",
+      image: "/work/DSC02856.jpg"
     },
   ];
 
   const clients = [
-    "adda247.jpg", 
-    "dtu.png", 
-    "srcc.png", 
-    "mahindra.jpg", 
-    "united.png", 
-    "disha.png", 
-    "edushield.png"
+    "adda247.jpg", "dtu.png", "srcc.png", "mahindra.jpg", "united.png", "disha.png", "edushield.png"
   ];
 
+  const processSteps = [
+    { num: "01", title: "DISCOVER & UNDERSTAND", desc: "We immerse in your brand, audience, and ambitions. Deep listening before any creative output." },
+    { num: "02", title: "STRATEGIZE & PLAN", desc: "Data-backed strategy meets creative intuition. Comprehensive content blueprints — platform-specific and commercially sharp." },
+    { num: "03", title: "CREATE & PRODUCE", desc: "Vision becomes reality. Scripts, shoots, design, editing — rigorous and quality-focused at every stage." },
+    { num: "04", title: "DISTRIBUTE & AMPLIFY", desc: "Right content, right time, right people. Organic strategy meets paid performance for maximum reach." },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80 } }
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between w-full overflow-x-hidden">
+    <main className="flex min-h-screen flex-col items-center justify-between w-full overflow-x-hidden bg-[#0A0A0A]">
       
-      {/* 1. HERO SECTION WITH VIDEO BACKGROUND */}
-      <section className="relative w-full h-[90vh] flex flex-col items-center justify-center overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/70 to-[#0A0A0A] z-10"></div>
-        
-        <div className="relative z-20 text-center px-6 max-w-5xl mx-auto flex flex-col items-center mt-12">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold tracking-tighter uppercase leading-[0.9] mb-6">
-            We Build <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E50914] to-red-600">Culture.</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-medium tracking-wide">
-            Premier creator management, visual production, and digital strategy. We turn attention into measurable business growth.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link 
-              href="/work" 
-              className="bg-[#E50914] hover:bg-red-700 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(229,9,20,0.4)] hover:shadow-[0_0_30px_rgba(229,9,20,0.6)] hover:-translate-y-1"
-            >
-              View Our Work <ArrowRight size={18} />
+      {/* 1. HERO SECTION */}
+      <section className="relative w-full min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+          
+          <motion.div 
+            initial="hidden"
+            animate="show"
+            variants={containerVariants}
+            className="lg:col-span-9 flex flex-col justify-center"
+          >
+            <motion.h1 variants={itemVariants} className="text-7xl md:text-[10rem] font-heading font-extrabold tracking-tighter uppercase leading-[0.85] mb-8 text-white">
+              WE BUILD <br />
+              <span className="text-[#E50914]">CULTURE.</span>
+            </motion.h1>
+            
+            <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl font-medium tracking-wide border-l-2 border-[#E50914] pl-6">
+              Creator management, visual production, and digital strategy — turning attention into measurable, lasting business growth for brands that refuse to be ordinary.
+            </motion.p>
+            
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6">
+              <Link href="/work" className="bg-[#E50914] hover:bg-white hover:text-black text-white px-8 py-5 rounded-none text-sm font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3 group">
+                <Play size={16} className="fill-current group-hover:scale-110 transition-transform" /> View Our Work
+              </Link>
+              <Link href="/services" className="bg-transparent border border-white/20 hover:border-white text-white px-8 py-5 rounded-none text-sm font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center">
+                Explore Services
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Hero Stats Sidebar */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="hidden lg:flex lg:col-span-3 flex-col justify-center gap-12 border-l border-white/10 pl-12"
+          >
+            {[
+              { label: "PROJECTS", val: "125+" },
+              { label: "REVENUE GEN", val: "₹30M+" },
+              { label: "IMPRESSIONS", val: "100M+" }
+            ].map((stat, i) => (
+              <div key={i} className="group">
+                <h3 className="text-5xl font-heading font-bold text-[#E50914] tracking-tighter mb-2 group-hover:scale-105 transition-transform origin-left">{stat.val}</h3>
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. MORE THAN AN AGENCY */}
+      <section className="w-full py-32 bg-white text-black relative">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">— WHO WE ARE</p>
+            <h2 className="text-5xl md:text-7xl font-heading font-extrabold uppercase leading-[0.9] mb-8">
+              MORE THAN <br />AN AGENCY
+            </h2>
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed font-medium">
+              We are architects of cultural moments. Pixel Pie Media sits at the intersection of creative vision and strategic execution — where brands become movements and creators become icons.
+            </p>
+            <p className="text-lg text-gray-600 mb-10 leading-relaxed font-medium">
+              Based in New Delhi, we work with brands that refuse to be ordinary and creators who are ready to dominate their niche.
+            </p>
+            <Link href="/about" className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#E50914] transition-colors">
+              Our Story <ArrowRight size={18} />
             </Link>
-            <Link 
-              href="/services" 
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center hover:-translate-y-1"
-            >
-              Our Services
+          </motion.div>
+          
+          <div className="relative h-[600px] w-full">
+            <Image src="/work/DSC07884.jpg" alt="Team" fill className="object-cover rounded-none grayscale hover:grayscale-0 transition-all duration-700" />
+            <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-[#E50914] z-[-1]"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. OUR SERVICES */}
+      <section className="w-full py-32 bg-[#0A0A0A] relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-16">
+            <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">— WHAT WE DO</p>
+            <h2 className="text-5xl md:text-7xl font-heading font-extrabold uppercase text-white">OUR SERVICES</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative h-[450px] overflow-hidden cursor-pointer"
+              >
+                <Image src={service.image} alt={service.title} fill className="object-cover opacity-40 group-hover:opacity-20 transition-opacity duration-500 grayscale group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-heading font-bold mb-4 text-white group-hover:text-[#E50914] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    {service.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-16 text-center">
+            <Link href="/services" className="inline-block border-b border-white text-white font-bold uppercase tracking-widest pb-1 hover:text-[#E50914] hover:border-[#E50914] transition-colors">
+              View All 6 Services →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. TRUSTED BY CLIENT MARQUEE */}
-      <section className="w-full py-12 border-b border-white/10 bg-[#0A0A0A] overflow-hidden flex flex-col items-center">
-        <p className="text-sm font-bold text-gray-500 uppercase tracking-[0.2em] mb-8 text-center">
-          Trusted By Industry Leaders
+      {/* 4. RED STATS BANNER */}
+      <section className="w-full bg-[#E50914] py-20 flex flex-col items-center border-y border-red-800">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center w-full">
+          {[
+            { label: "PROJECTS DELIVERED", val: "125+" },
+            { label: "REVENUE GENERATED", val: "₹30M+" },
+            { label: "TOTAL IMPRESSIONS", val: "100M+" },
+            { label: "VIEWS ACHIEVED", val: "10M+" }
+          ].map((stat, index) => (
+            <div key={index} className="flex flex-col items-center justify-center group">
+              <p className="text-5xl md:text-7xl font-heading font-extrabold text-white tracking-tighter drop-shadow-lg group-hover:-translate-y-2 transition-transform duration-300">
+                {stat.val}
+              </p>
+              <p className="text-xs font-bold text-red-200 uppercase tracking-widest mt-4">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. CLIENT MARQUEE */}
+      <section className="w-full py-16 bg-[#0A0A0A] overflow-hidden border-b border-white/10">
+        <p className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em] mb-10 text-center">
+          — TRUSTED BY INDUSTRY LEADERS —
         </p>
-        
         <div className="w-full relative flex overflow-x-hidden">
-          <div className="animate-marquee whitespace-nowrap flex items-center gap-8 md:gap-12 px-8">
-            {[...clients, ...clients].map((client, index) => (
-              <div 
-                key={index} 
-                className="relative h-20 w-36 md:h-24 md:w-48 flex-shrink-0 bg-white rounded-xl transition-all duration-300 grayscale-0 md:grayscale opacity-95 md:opacity-70 md:hover:grayscale-0 md:hover:opacity-100 overflow-hidden border border-white/10"
-              >
-                <Image 
-                  src={`/clients/${client}`} 
-                  alt="Client Logo" 
-                  fill
-                  className="object-contain p-4"
-                />
+          <div className="animate-marquee whitespace-nowrap flex items-center gap-16 px-8">
+            {[...clients, ...clients, ...clients].map((client, index) => (
+              <div key={index} className="relative h-16 w-32 flex-shrink-0 opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300">
+                <Image src={`/clients/${client}`} alt="Client Logo" fill className="object-contain" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. AGENCY IMPACT STATS SECTION */}
-      <section className="w-full py-24 bg-[#0A0A0A] relative border-b border-white/10 overflow-hidden">
-        
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 opacity-[0.03] pointer-events-none select-none">
-          <h2 className="text-[12vw] font-heading font-extrabold whitespace-nowrap leading-none">
-            PIXEL PIE MEDIA
-          </h2>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      {/* 6. OUR PROCESS */}
+      <section className="w-full py-32 bg-[#0A0A0A] relative">
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4 text-center">— HOW WE WORK</p>
+          <h2 className="text-5xl md:text-7xl font-heading font-extrabold uppercase text-white text-center mb-20">OUR PROCESS</h2>
           
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-heading font-bold uppercase tracking-wide text-white">
-              Pixel Pie Media <br className="md:hidden" />
-              <span className="text-[#E50914]">By The Numbers</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            
-            <div className="flex flex-col items-center justify-center text-center pt-8 md:pt-0 px-4 group">
-              <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 group-hover:text-white transition-colors">Projects</p>
-              <p className="text-5xl md:text-7xl font-heading font-extrabold text-white tracking-tighter">
-                125<span className="text-[#E50914]">+</span>
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center justify-center text-center pt-8 md:pt-0 px-4 group">
-              <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 group-hover:text-white transition-colors">Revenue Gen</p>
-              <p className="text-5xl md:text-7xl font-heading font-extrabold text-white tracking-tighter">
-                30M<span className="text-[#E50914]">+</span>
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center justify-center text-center pt-8 md:pt-0 px-4 group">
-              <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 group-hover:text-white transition-colors">Impressions</p>
-              <p className="text-5xl md:text-7xl font-heading font-extrabold text-white tracking-tighter">
-                100M<span className="text-[#E50914]">+</span>
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center justify-center text-center pt-8 md:pt-0 px-4 group">
-              <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 group-hover:text-white transition-colors">Views</p>
-              <p className="text-5xl md:text-7xl font-heading font-extrabold text-white tracking-tighter">
-                10M<span className="text-[#E50914]">+</span>
-              </p>
-            </div>
-
+          <div className="space-y-12">
+            {processSteps.map((step, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1 }}
+                className="flex flex-col md:flex-row gap-6 md:gap-12 items-start group"
+              >
+                <span className="text-5xl font-heading font-bold text-white/10 group-hover:text-[#E50914] transition-colors duration-500">
+                  {step.num}
+                </span>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3 tracking-wide">{step.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-lg">{step.desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. SERVICES GRID */}
-      <section className="w-full py-24 px-6 max-w-7xl mx-auto relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E50914]/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold uppercase tracking-tighter">
-            What We <span className="text-[#E50914]">Do</span>
+      {/* 7. CTA SECTION */}
+      <section className="w-full py-32 bg-black relative border-t border-white/10">
+        <div className="absolute inset-0 bg-[#E50914]/5 blur-[100px] pointer-events-none"></div>
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">READY TO GROW?</p>
+          <h2 className="text-5xl md:text-7xl font-heading font-extrabold uppercase text-white mb-10 leading-[0.9]">
+            LET'S BUILD SOMETHING <br /> <span className="text-stroke text-stroke-hover transition-all duration-300">REMARKABLE.</span>
           </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="group relative bg-white/[0.03] border border-white/10 p-8 rounded-2xl hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 hover:-translate-y-2 flex flex-col h-full overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#E50914] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <h3 className="text-xl font-heading font-bold mb-3 text-white group-hover:text-[#E50914] transition-colors leading-tight">
-                {service.title}
-              </h3>
-              <p className="text-sm font-bold text-[#E50914] mb-4 uppercase tracking-wider">
-                {service.hook}
-              </p>
-              <p className="text-gray-400 leading-relaxed text-sm flex-grow">
-                {service.desc}
-              </p>
-            </div>
-          ))}
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link href="/contact" className="bg-[#E50914] text-white px-10 py-5 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300">
+              START A PROJECT
+            </Link>
+            <Link href="/work" className="bg-transparent border border-white text-white px-10 py-5 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300">
+              SEE OUR WORK
+            </Link>
+          </div>
         </div>
       </section>
 
