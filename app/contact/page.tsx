@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,7 +15,6 @@ export default function ContactPage() {
     const formData = new FormData(form);
 
     try {
-      // REPLACE THE STRING BELOW WITH YOUR ACTUAL FORMSPREE URL
       const response = await fetch("https://formspree.io/f/xlgwaezd", {
         method: "POST",
         body: formData,
@@ -26,8 +25,7 @@ export default function ContactPage() {
 
       if (response.ok) {
         setIsSubmitted(true);
-        form.reset(); // Clears the form fields
-        // Reset the success state after 3 seconds so they can submit again if needed
+        form.reset(); 
         setTimeout(() => setIsSubmitted(false), 3000);
       } else {
         alert("Oops! There was a problem submitting your form. Please try again.");
@@ -86,8 +84,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-1">Email Us</p>
-                <a href="mailto:hello@pixelpiemedia.com" className="text-xl font-medium text-white hover:text-[#E50914] transition-colors">
-                  hello@pixelpiemedia.com
+                <a href="mailto:admin@thepixelpiemedia.com" className="text-xl font-medium text-white hover:text-[#E50914] transition-colors">
+                  admin@thepixelpiemedia.com
                 </a>
               </div>
             </div>
@@ -114,7 +112,6 @@ export default function ContactPage() {
           transition={{ delay: 0.4 }}
           className="bg-white/[0.03] border border-white/10 p-8 md:p-12 rounded-2xl relative overflow-hidden"
         >
-          {/* Subtle background glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#E50914]/10 rounded-full blur-[80px] -z-10"></div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -153,6 +150,7 @@ export default function ContactPage() {
                 <option value="creator">Creator Representation</option>
                 <option value="brand">Brand Campaign & Strategy</option>
                 <option value="production">Video Production / Event Shoot</option>
+                <option value="website">Website Building</option>
                 <option value="other">Other Inquiry</option>
               </select>
             </div>

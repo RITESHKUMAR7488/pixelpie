@@ -49,8 +49,9 @@ export default function AboutPage() {
           viewport={{ once: true, margin: "-100px" }}
           className="relative h-[600px] w-full"
         >
+          {/* UPDATED IMAGE SOURCE */}
           <Image 
-            src="/work/DSC02856.jpg" 
+            src="/photo_2026-03-28_13-58-13.jpg.jpeg" 
             alt="The Pixel Pie Media Team" 
             fill
             className="object-cover grayscale hover:grayscale-0 transition-all duration-700 z-10 relative"

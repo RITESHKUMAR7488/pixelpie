@@ -14,33 +14,21 @@ export default function ServicesPage() {
     },
     {
       num: "02",
-      title: "PERFORMANCE MARKETING & PAID ADS",
-      hook: "DATA-DRIVEN CAMPAIGNS THAT CONVERT",
-      desc: "Our performance marketing strategy combines audience targeting, ad creatives, A/B testing, and conversion tracking to maximise ROI. We continuously analyse campaign data to optimise results and turn attention into measurable business growth.",
-    },
-    {
-      num: "03",
-      title: "BRAND DESIGN & VISUAL IDENTITY",
-      hook: "DESIGN SYSTEMS THAT STRENGTHEN YOUR BRAND",
-      desc: "We create brand-consistent visuals, digital assets, and communication designs that elevate your brand presence. From social media creatives to campaign graphics, every design is built to maintain clarity, consistency, and premium appeal.",
-    },
-    {
-      num: "04",
       title: "VIDEO EDITING & CONTENT OPTIMIZATION",
       hook: "EDITING DESIGNED FOR ENGAGEMENT",
       desc: "We transform raw footage into platform-optimized content using storytelling, pacing, motion graphics, and sound design. Whether it’s reels, ads, or brand films, our editing process focuses on retention, clarity, and impact.",
     },
     {
-      num: "05",
+      num: "03",
       title: "PRODUCTION, SHOOTS & EVENT COVERAGE",
       hook: "HIGH-QUALITY VISUAL PRODUCTION",
       desc: "From brand shoots and campaign videos to event coverage, we manage the entire production workflow — planning, filming, and post-production. The result is cinematic content aligned with your brand identity.",
     },
     {
-      num: "06",
-      title: "STRATEGIC COPYWRITING",
-      hook: "MESSAGING THAT DRIVES ACTION",
-      desc: "Our copywriting blends brand voice, audience psychology, and marketing frameworks to craft captions, scripts, and campaigns that resonate with your audience while supporting your overall marketing strategy.",
+      num: "04",
+      title: "WEBSITE BUILDING & DEVELOPMENT",
+      hook: "MODERN. BLAZING FAST. HIGH-CONVERTING.",
+      desc: "Your website is your ultimate digital storefront. We build modern, responsive, and robust websites utilizing cutting-edge tech stacks to ensure flawless UX/UI, blazing-fast load speeds, and architectures designed specifically to convert traffic into revenue.",
     },
   ];
 
@@ -48,7 +36,7 @@ export default function ServicesPage() {
     <main className="min-h-screen pt-32 px-6 max-w-7xl mx-auto pb-32 bg-[#0A0A0A]">
       
       <div className="mb-24 relative">
-        <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">— OUR CAPABILITIES</p>
+        <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">— WHAT WE DO</p>
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

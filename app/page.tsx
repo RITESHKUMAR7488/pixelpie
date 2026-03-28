@@ -13,14 +13,14 @@ export default function Home() {
       image: "/work/1.jpg"
     },
     {
-      title: "PERFORMANCE MARKETING",
-      desc: "Audience targeting, A/B testing, and conversion tracking combined into campaigns that maximize ROI and turn attention into business growth.",
-      image: "/work/DSC02112.jpg"
+      title: "WEBSITE BUILDING",
+      desc: "Modern, blazing-fast, and responsive websites architected for exceptional UI/UX, built precisely to turn your digital traffic into business revenue.",
+      image: "/work/DSC02856.jpg"
     },
     {
-      title: "BRAND DESIGN & IDENTITY",
-      desc: "Brand-consistent visuals and campaign graphics built for clarity, consistency, and premium presence at every brand touchpoint.",
-      image: "/work/DSC02856.jpg"
+      title: "VISUAL PRODUCTION",
+      desc: "From brand shoots and campaign videos to event coverage, cinematic content created to align completely with your brand identity.",
+      image: "/work/DSC02112.jpg"
     },
   ];
 
@@ -148,7 +148,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16">
             <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">— WHAT WE DO</p>
-            <h2 className="text-5xl md:text-7xl font-heading font-extrabold uppercase text-white">OUR SERVICES</h2>
+            <h2 className="text-5xl md:text-7xl font-heading font-extrabold uppercase text-white">WHAT WE DO</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -159,7 +159,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative h-[450px] overflow-hidden cursor-pointer"
+                className="group relative h-[450px] overflow-hidden cursor-pointer border border-white/10"
               >
                 <Image src={service.image} alt={service.title} fill className="object-cover opacity-40 group-hover:opacity-20 transition-opacity duration-500 grayscale group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent p-8 flex flex-col justify-end">
@@ -175,7 +175,7 @@ export default function Home() {
           </div>
           <div className="mt-16 text-center">
             <Link href="/services" className="inline-block border-b border-white text-white font-bold uppercase tracking-widest pb-1 hover:text-[#E50914] hover:border-[#E50914] transition-colors">
-              View All 6 Services →
+              View All Services →
             </Link>
           </div>
         </div>
