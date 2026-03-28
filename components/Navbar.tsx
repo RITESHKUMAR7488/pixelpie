@@ -32,15 +32,13 @@ export default function Navbar() {
         
         {/* LOGO IMAGE + TEXT */}
         <Link href="/" className="flex items-center gap-3 group z-50">
-          {/* White background box for the dark logo */}
-          <div className="bg-white p-1 rounded h-9 w-9 flex items-center justify-center group-hover:scale-105 transition-transform">
+          <div className="bg-white p-1 rounded h-10 w-10 flex items-center justify-center group-hover:scale-105 transition-transform">
             <img 
-              src="/logo.png" 
-              alt="Logo" 
+              src="/ppm_logo_animated.svg" 
+              alt="Pixel Pie Media Animated Logo" 
               className="h-full w-full object-contain"
             />
           </div>
-          {/* Company Name Text */}
           <span className="text-white font-heading font-bold uppercase tracking-widest text-sm sm:text-base group-hover:text-[#E50914] transition-colors">
             Pixel Pie Media
           </span>
@@ -67,8 +65,9 @@ export default function Navbar() {
 
         {/* MOBILE MENU BUTTON */}
         <button 
-          className="md:hidden text-white p-2 z-50"
+          className="md:hidden text-white p-2 z-50 hover:text-[#E50914] transition-colors"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -93,7 +92,7 @@ export default function Navbar() {
         <Link 
           href="/contact" 
           onClick={() => setIsOpen(false)}
-          className="bg-[#E50914] text-white px-8 py-4 rounded-full text-lg font-bold uppercase tracking-widest mt-4"
+          className="bg-[#E50914] text-white px-8 py-4 rounded-full text-lg font-bold uppercase tracking-widest mt-4 shadow-[0_0_15px_rgba(229,9,20,0.3)]"
         >
           Contact Us
         </Link>

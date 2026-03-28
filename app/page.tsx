@@ -49,7 +49,22 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between w-full overflow-x-hidden bg-[#0A0A0A]">
       
       {/* 1. HERO SECTION */}
-      <section className="relative w-full min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden">
+      <section className="relative w-full min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-black">
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-50"
+          >
+            <source src="/0311 (5) (1).mp4" type="video/mp4" />
+          </video>
+          {/* Top to Bottom Gradient Overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]"></div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
           
           <motion.div 
@@ -58,20 +73,20 @@ export default function Home() {
             variants={containerVariants}
             className="lg:col-span-9 flex flex-col justify-center"
           >
-            <motion.h1 variants={itemVariants} className="text-7xl md:text-[10rem] font-heading font-extrabold tracking-tighter uppercase leading-[0.85] mb-8 text-white">
+            <motion.h1 variants={itemVariants} className="text-7xl md:text-[10rem] font-heading font-extrabold tracking-tighter uppercase leading-[0.85] mb-8 text-white drop-shadow-xl">
               WE BUILD <br />
               <span className="text-[#E50914]">CULTURE.</span>
             </motion.h1>
             
-            <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl font-medium tracking-wide border-l-2 border-[#E50914] pl-6">
+            <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-medium tracking-wide border-l-2 border-[#E50914] pl-6 drop-shadow-md">
               Creator management, visual production, and digital strategy — turning attention into measurable, lasting business growth for brands that refuse to be ordinary.
             </motion.p>
             
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6">
-              <Link href="/work" className="bg-[#E50914] hover:bg-white hover:text-black text-white px-8 py-5 rounded-none text-sm font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3 group">
+              <Link href="/work" className="bg-[#E50914] hover:bg-white hover:text-black text-white px-8 py-5 rounded-none text-sm font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3 group shadow-[0_0_20px_rgba(229,9,20,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]">
                 <Play size={16} className="fill-current group-hover:scale-110 transition-transform" /> View Our Work
               </Link>
-              <Link href="/services" className="bg-transparent border border-white/20 hover:border-white text-white px-8 py-5 rounded-none text-sm font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center">
+              <Link href="/services" className="bg-transparent border border-white/40 hover:border-white text-white px-8 py-5 rounded-none text-sm font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
                 Explore Services
               </Link>
             </motion.div>
@@ -82,16 +97,16 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="hidden lg:flex lg:col-span-3 flex-col justify-center gap-12 border-l border-white/10 pl-12"
+            className="hidden lg:flex lg:col-span-3 flex-col justify-center gap-12 border-l border-white/20 pl-12"
           >
             {[
               { label: "PROJECTS", val: "125+" },
               { label: "REVENUE GEN", val: "₹30M+" },
               { label: "IMPRESSIONS", val: "100M+" }
             ].map((stat, i) => (
-              <div key={i} className="group">
-                <h3 className="text-5xl font-heading font-bold text-[#E50914] tracking-tighter mb-2 group-hover:scale-105 transition-transform origin-left">{stat.val}</h3>
-                <p className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">{stat.label}</p>
+              <div key={i} className="group cursor-default">
+                <h3 className="text-5xl font-heading font-bold text-[#E50914] tracking-tighter mb-2 group-hover:scale-105 transition-transform origin-left drop-shadow-lg">{stat.val}</h3>
+                <p className="text-xs font-bold text-gray-300 uppercase tracking-[0.2em]">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -116,13 +131,13 @@ export default function Home() {
             <p className="text-lg text-gray-600 mb-10 leading-relaxed font-medium">
               Based in New Delhi, we work with brands that refuse to be ordinary and creators who are ready to dominate their niche.
             </p>
-            <Link href="/about" className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#E50914] transition-colors">
+            <Link href="/about" className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#E50914] transition-colors shadow-lg hover:shadow-xl">
               Our Story <ArrowRight size={18} />
             </Link>
           </motion.div>
           
           <div className="relative h-[600px] w-full">
-            <Image src="/work/DSC07884.jpg" alt="Team" fill className="object-cover rounded-none grayscale hover:grayscale-0 transition-all duration-700" />
+            <Image src="/work/DSC07884.jpg" alt="Team" fill className="object-cover rounded-none grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl" />
             <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-[#E50914] z-[-1]"></div>
           </div>
         </div>
@@ -167,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* 4. RED STATS BANNER */}
-      <section className="w-full bg-[#E50914] py-20 flex flex-col items-center border-y border-red-800">
+      <section className="w-full bg-[#E50914] py-20 flex flex-col items-center border-y border-red-800 shadow-[inset_0_0_50px_rgba(0,0,0,0.3)]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center w-full">
           {[
             { label: "PROJECTS DELIVERED", val: "125+" },
@@ -175,7 +190,7 @@ export default function Home() {
             { label: "TOTAL IMPRESSIONS", val: "100M+" },
             { label: "VIEWS ACHIEVED", val: "10M+" }
           ].map((stat, index) => (
-            <div key={index} className="flex flex-col items-center justify-center group">
+            <div key={index} className="flex flex-col items-center justify-center group cursor-default">
               <p className="text-5xl md:text-7xl font-heading font-extrabold text-white tracking-tighter drop-shadow-lg group-hover:-translate-y-2 transition-transform duration-300">
                 {stat.val}
               </p>
@@ -193,8 +208,8 @@ export default function Home() {
         <div className="w-full relative flex overflow-x-hidden">
           <div className="animate-marquee whitespace-nowrap flex items-center gap-16 px-8">
             {[...clients, ...clients, ...clients].map((client, index) => (
-              <div key={index} className="relative h-16 w-32 flex-shrink-0 opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300">
-                <Image src={`/clients/${client}`} alt="Client Logo" fill className="object-contain" />
+              <div key={index} className="relative h-16 w-32 flex-shrink-0 opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer">
+                <Image src={`/clients/${client}`} alt="Client Logo" fill className="object-contain drop-shadow-md" />
               </div>
             ))}
           </div>
@@ -215,7 +230,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.1 }}
-                className="flex flex-col md:flex-row gap-6 md:gap-12 items-start group"
+                className="flex flex-col md:flex-row gap-6 md:gap-12 items-start group hover:bg-white/[0.02] p-6 rounded-2xl transition-colors border border-transparent hover:border-white/5"
               >
                 <span className="text-5xl font-heading font-bold text-white/10 group-hover:text-[#E50914] transition-colors duration-500">
                   {step.num}
@@ -236,10 +251,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">READY TO GROW?</p>
           <h2 className="text-5xl md:text-7xl font-heading font-extrabold uppercase text-white mb-10 leading-[0.9]">
-            LET'S BUILD SOMETHING <br /> <span className="text-stroke text-stroke-hover transition-all duration-300">REMARKABLE.</span>
+            LET'S BUILD SOMETHING <br /> <span className="text-stroke text-stroke-hover transition-all duration-300 cursor-default">REMARKABLE.</span>
           </h2>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link href="/contact" className="bg-[#E50914] text-white px-10 py-5 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300">
+            <Link href="/contact" className="bg-[#E50914] text-white px-10 py-5 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300 shadow-[0_0_20px_rgba(229,9,20,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
               START A PROJECT
             </Link>
             <Link href="/work" className="bg-transparent border border-white text-white px-10 py-5 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300">
