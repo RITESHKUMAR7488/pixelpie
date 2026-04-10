@@ -17,6 +17,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Work", path: "/work" },
+    { name: "Websites", path: "/websites" },
     { name: "Services", path: "/services" },
     { name: "Creators", path: "/creators" },
     { name: "About", path: "/about" },
@@ -28,20 +29,18 @@ export default function Navbar() {
         scrolled ? "bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 py-2" : "bg-transparent py-4"
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         
-        {/* LOGO IMAGE + TEXT */}
-        <Link href="/" className="flex items-center gap-3 group z-50">
-          <div className="bg-white p-1 rounded h-10 w-10 flex items-center justify-center group-hover:scale-105 transition-transform">
-            <img 
-              src="/ppm_logo_animated.svg" 
-              alt="Pixel Pie Media Animated Logo" 
-              className="h-full w-full object-contain"
+        {/* LOGO IMAGE */}
+        <Link href="/" className="flex items-center group z-50">
+          <div className="w-48 md:w-56 h-14 flex items-center justify-start group-hover:opacity-80 transition-opacity">
+            <object 
+              data="/ppm_logo_animated.svg" 
+              type="image/svg+xml" 
+              className="w-full h-full object-contain pointer-events-none"
+              aria-label="Pixel Pie Media Logo"
             />
           </div>
-          <span className="text-white font-heading font-bold uppercase tracking-widest text-sm sm:text-base group-hover:text-[#E50914] transition-colors">
-            Pixel Pie Media
-          </span>
         </Link>
 
         {/* DESKTOP NAVIGATION */}

@@ -9,16 +9,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         
         {/* Brand Col */}
-        <div className="md:col-span-1 flex flex-col gap-6">
-          <Link href="/" className="flex items-center gap-3 group w-fit">
-            <div className="bg-white p-1 rounded h-10 w-10 flex items-center justify-center group-hover:scale-105 transition-transform">
-              <img src="/ppm_logo_animated.svg" alt="Pixel Pie Media Logo" className="h-full w-full object-contain" />
+        <div className="md:col-span-1 flex flex-col gap-4">
+          <Link href="/" className="flex items-center group w-fit">
+            <div className="w-48 md:w-56 h-14 flex items-center justify-start group-hover:opacity-80 transition-opacity">
+              <object 
+                data="/ppm_logo_animated.svg" 
+                type="image/svg+xml" 
+                className="w-full h-full object-contain pointer-events-none"
+                aria-label="Pixel Pie Media Logo"
+              />
             </div>
-            <span className="text-white font-heading font-bold uppercase tracking-widest text-sm sm:text-base group-hover:text-[#E50914] transition-colors">
-              Pixel Pie Media
-            </span>
           </Link>
-          <p className="text-gray-400 text-sm leading-relaxed font-medium">
+          <p className="text-gray-400 text-sm leading-relaxed font-medium mt-4">
             Creator management, visual production, and digital strategy. We turn attention into measurable, lasting business growth.
           </p>
         </div>
@@ -70,4 +72,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+}   

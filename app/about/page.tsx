@@ -37,7 +37,7 @@ export default function AboutPage() {
           transition={{ type: "spring", stiffness: 80 }}
           className="text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold uppercase tracking-tighter text-white leading-[0.85]"
         >
-          THE <br /><span className="text-[#E50914]">VISION.</span>
+          THE <br /><span className="text-[#E50914]">FOUNDATION.</span>
         </motion.h1>
       </div>
 
@@ -49,10 +49,9 @@ export default function AboutPage() {
           viewport={{ once: true, margin: "-100px" }}
           className="relative h-[600px] w-full"
         >
-          {/* UPDATED IMAGE SOURCE */}
           <Image 
             src="/photo_2026-03-28_13-58-13.jpg.jpeg" 
-            alt="The Pixel Pie Media Team" 
+            alt="Rishav Raj - Founder" 
             fill
             className="object-cover grayscale hover:grayscale-0 transition-all duration-700 z-10 relative"
           />
@@ -70,13 +69,16 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6 text-gray-400 text-lg leading-relaxed font-medium border-l-2 border-[#E50914] pl-6">
             <p>
-              The digital landscape is noisy. Most agencies are busy chasing vanity metrics—likes, views, and fleeting moments. We play a different game. 
+              The Pixel Pie Media is built on a foundation of experience, hard work, passion, consistency, and trust.
             </p>
             <p>
-              The Pixel Pie Media was built to bridge the gap between high-end visual production and ruthless performance marketing. Whether we are managing a top-tier creator's brand or producing a nationwide campaign for an industry leader, our focus remains absolute: turn attention into measurable business growth.
+              Founded by Rishav Raj, a student at Shri Ram College of Commerce and District Rank 1 holder in Class 12, the journey started with a genuine passion for storytelling and content creation. Over time, this passion evolved through hands-on experience, consistent efforts, and a commitment to delivering meaningful results for brands.
+            </p>
+            <p>
+              At The Pixel Pie Media, we believe great marketing goes beyond visuals — it's about building experiences, creating emotional connections, and leaving a lasting impression. Every project we undertake is driven by strategy, creativity, and trust, ensuring brands don’t just grow — they stand out.
             </p>
             <p className="text-white font-bold">
-              We don't just make noise. We build culture.
+              Because for us, it’s not just about content — it’s about creating stories, building memories, and growing brands with consistency.
             </p>
           </div>
           
