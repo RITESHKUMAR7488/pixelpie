@@ -17,6 +17,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Work", path: "/work" },
+    { name: "Websites", path: "/websites" },
     { name: "Services", path: "/services" },
     { name: "Creators", path: "/creators" },
     { name: "About", path: "/about" },
@@ -28,22 +29,18 @@ export default function Navbar() {
         scrolled ? "bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 py-2" : "bg-transparent py-4"
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         
-        {/* LOGO IMAGE + TEXT */}
-        <Link href="/" className="flex items-center gap-3 group z-50">
-          {/* White background box for the dark logo */}
-          <div className="bg-white p-1 rounded h-9 w-9 flex items-center justify-center group-hover:scale-105 transition-transform">
-            <img 
-              src="/logo.png" 
-              alt="Logo" 
-              className="h-full w-full object-contain"
+        {/* LOGO IMAGE */}
+        <Link href="/" className="flex items-center group z-50">
+          <div className="w-48 md:w-56 h-14 flex items-center justify-start group-hover:opacity-80 transition-opacity">
+            <object 
+              data="/ppm_logo_animated.svg" 
+              type="image/svg+xml" 
+              className="w-full h-full object-contain pointer-events-none"
+              aria-label="Pixel Pie Media Logo"
             />
           </div>
-          {/* Company Name Text */}
-          <span className="text-white font-heading font-bold uppercase tracking-widest text-sm sm:text-base group-hover:text-[#E50914] transition-colors">
-            Pixel Pie Media
-          </span>
         </Link>
 
         {/* DESKTOP NAVIGATION */}
@@ -67,8 +64,9 @@ export default function Navbar() {
 
         {/* MOBILE MENU BUTTON */}
         <button 
-          className="md:hidden text-white p-2 z-50"
+          className="md:hidden text-white p-2 z-50 hover:text-[#E50914] transition-colors"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -93,7 +91,7 @@ export default function Navbar() {
         <Link 
           href="/contact" 
           onClick={() => setIsOpen(false)}
-          className="bg-[#E50914] text-white px-8 py-4 rounded-full text-lg font-bold uppercase tracking-widest mt-4"
+          className="bg-[#E50914] text-white px-8 py-4 rounded-full text-lg font-bold uppercase tracking-widest mt-4 shadow-[0_0_15px_rgba(229,9,20,0.3)]"
         >
           Contact Us
         </Link>

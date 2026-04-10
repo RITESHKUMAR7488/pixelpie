@@ -1,67 +1,32 @@
 "use client";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Instagram, Youtube, Twitter } from "lucide-react";
 
 export default function CreatorsPage() {
   const creators = [
-    {
-      name: "KR$NA",
-      niche: "Desi Hip-Hop & Rap",
-      followers: "1.2M+",
-      image: "krsna5.jpg",
-    },
-    {
-      name: "Milind Gaba",
-      niche: "Pop & Bollywood",
-      followers: "5.8M+",
-      image: "mg9.jpg",
-    },
-    {
-      name: "Calm",
-      niche: "Desi Hip-Hop",
-      followers: "600K+",
-      image: "DSC02112.jpg",
-    },
-    {
-      name: "Milind Gaba",
-      niche: "Live Performance",
-      followers: "5.8M+",
-      image: "mg2.jpg",
-    },
-    {
-      name: "Paradox",
-      niche: "Hip-Hop & Pop",
-      followers: "1.5M+",
-      image: "DSC07884.jpg",
-    },
-    {
-      name: "Encore ABJ",
-      niche: "Desi Hip-Hop",
-      followers: "600K+",
-      image: "DSC02856.jpg",
-    },
+    { name: "KR$NA", niche: "DESI HIP-HOP", followers: "1.2M+", image: "krsna5.jpg" },
+    { name: "MILIND GABA", niche: "POP & BOLLYWOOD", followers: "5.8M+", image: "mg9.jpg" },
+    { name: "CALM", niche: "DESI HIP-HOP", followers: "600K+", image: "DSC02112.jpg" },
+    { name: "MILIND GABA", niche: "LIVE PERFORMANCE", followers: "5.8M+", image: "mg2.jpg" },
+    { name: "PARADOX", niche: "HIP-HOP & POP", followers: "1.5M+", image: "DSC07884.jpg" },
+    { name: "ENCORE ABJ", niche: "DESI HIP-HOP", followers: "600K+", image: "DSC02856.jpg" },
   ];
 
   return (
-    <main className="min-h-screen pt-32 px-6 max-w-7xl mx-auto pb-24">
+    <main className="min-h-screen pt-32 px-6 max-w-7xl mx-auto pb-32 bg-[#0A0A0A]">
       
-      <div className="text-center mb-20">
+      <div className="mb-24">
+        <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">— MANAGED CREATORS</p>
         <motion.h1 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold uppercase tracking-tighter"
+          transition={{ type: "spring", stiffness: 80 }}
+          className="text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold uppercase tracking-tighter text-white leading-[0.85]"
         >
-          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E50914] to-red-600">Talent.</span>
+          THE <br /><span className="text-[#E50914]">ROSTER.</span>
         </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-400 mt-6 max-w-2xl mx-auto text-lg"
-        >
-          We represent the voices shaping digital culture. From massive reach to hyper-engaged niches, our creators drive the conversation.
-        </motion.p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -71,47 +36,36 @@ export default function CreatorsPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
-            className="group relative h-[500px] w-full rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A] cursor-pointer"
+            transition={{ delay: index * 0.1 }}
+            className="group relative h-[600px] w-full bg-[#0A0A0A] cursor-pointer overflow-hidden border border-white/10 hover:border-[#E50914] transition-colors duration-500"
           >
-            {/* Mobile Fix: grayscale-0 on mobile, grayscale on md screens and above */}
             <Image
               src={`/work/${creator.image}`}
               alt={creator.name}
               fill
-              className="object-cover grayscale-0 md:grayscale group-hover:grayscale-0 transition-all duration-700 md:group-hover:scale-110"
+              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
             />
             
-            {/* Gradient Overlay - Always slightly visible on mobile */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 md:opacity-80 md:group-hover:opacity-90 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent opacity-100 transition-opacity duration-300"></div>
 
-            <div className="absolute -bottom-10 left-0 w-full h-1/2 bg-[#E50914]/20 blur-[50px] opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-            {/* Creator Info - Always up on mobile */}
-            <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end h-full translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300">
-              <div className="flex justify-between items-end mb-2">
-                <h3 className="text-3xl font-heading font-bold uppercase tracking-wide text-white">
-                  {creator.name}
-                </h3>
-                <span className="text-[#E50914] font-bold text-sm tracking-widest">
-                  {creator.followers}
-                </span>
-              </div>
-              
-              <p className="text-gray-300 text-sm tracking-wider uppercase mb-6 font-medium">
+            <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
+              <p className="text-[#E50914] text-xs tracking-[0.2em] uppercase font-bold mb-2">
                 {creator.niche}
               </p>
-
-              {/* Social Icons - Always visible on mobile */}
-              <div className="flex gap-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                <div className="p-2 bg-white/10 rounded-full hover:bg-[#E50914] hover:text-white transition-colors text-gray-300">
-                  <Instagram size={18} />
+              <h3 className="text-4xl font-heading font-extrabold uppercase tracking-tighter text-white mb-6">
+                {creator.name}
+              </h3>
+              
+              <div className="flex items-center justify-between border-t border-white/20 pt-6">
+                <div>
+                  <span className="block text-2xl font-bold text-white tracking-tighter">{creator.followers}</span>
+                  <span className="text-[10px] text-gray-500 uppercase tracking-widest">Followers</span>
                 </div>
-                <div className="p-2 bg-white/10 rounded-full hover:bg-[#E50914] hover:text-white transition-colors text-gray-300">
-                  <Youtube size={18} />
-                </div>
-                <div className="p-2 bg-white/10 rounded-full hover:bg-[#E50914] hover:text-white transition-colors text-gray-300">
-                  <Twitter size={18} />
+                
+                <div className="flex gap-3">
+                  <div className="text-gray-400 hover:text-[#E50914] transition-colors"><Instagram size={20} /></div>
+                  <div className="text-gray-400 hover:text-[#E50914] transition-colors"><Youtube size={20} /></div>
+                  <div className="text-gray-400 hover:text-[#E50914] transition-colors"><Twitter size={20} /></div>
                 </div>
               </div>
             </div>

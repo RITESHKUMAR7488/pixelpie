@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Target, Zap, Users, ArrowRight } from "lucide-react";
@@ -8,78 +9,85 @@ export default function AboutPage() {
   const values = [
     {
       icon: <Target size={32} />,
-      title: "Data-Driven Strategy",
+      title: "DATA-DRIVEN STRATEGY",
       desc: "We don't guess. Every piece of content, every ad spend, and every creator partnership is backed by analytics and audience psychology."
     },
     {
       icon: <Zap size={32} />,
-      title: "Speed of Culture",
+      title: "SPEED OF CULTURE",
       desc: "Trends die in weeks. We operate with high-speed execution to ensure your brand is driving the conversation, not just reacting to it."
     },
     {
       icon: <Users size={32} />,
-      title: "Creator-First",
+      title: "CREATOR-FIRST",
       desc: "We understand creators because we are them. We build long-term equity for our talent, ensuring sustainable growth over cheap virality."
     }
   ];
 
   return (
-    <main className="min-h-screen pt-32 px-6 max-w-7xl mx-auto pb-24">
+    <main className="min-h-screen pt-32 px-6 max-w-7xl mx-auto pb-32 bg-[#0A0A0A]">
       
       {/* HEADER */}
-      <div className="text-center mb-24">
+      <div className="text-center mb-32 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#E50914]/10 blur-[100px] pointer-events-none"></div>
+        <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-6">— WHO WE ARE</p>
         <motion.h1 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold uppercase tracking-tighter"
+          transition={{ type: "spring", stiffness: 80 }}
+          className="text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold uppercase tracking-tighter text-white leading-[0.85]"
         >
-          The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E50914] to-red-600">Vision.</span>
+          THE <br /><span className="text-[#E50914]">FOUNDATION.</span>
         </motion.h1>
       </div>
 
       {/* THE STORY SECTION */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-40">
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="relative h-[600px] w-full rounded-2xl overflow-hidden border border-white/10"
+          viewport={{ once: true, margin: "-100px" }}
+          className="relative h-[600px] w-full"
         >
-          {/* Using one of your high-quality images as the team/vibe shot */}
           <Image 
-            src="/work/DSC02856.jpg" 
-            alt="The Pixel Pie Media Team" 
+            src="/photo_2026-03-28_13-58-13.jpg.jpeg" 
+            alt="Rishav Raj - Founder" 
             fill
-            className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            className="object-cover grayscale hover:grayscale-0 transition-all duration-700 z-10 relative"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-80"></div>
+          <div className="absolute -top-8 -right-8 w-64 h-64 bg-[#E50914] z-0"></div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col gap-6"
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-col gap-8"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold uppercase tracking-wide text-white mb-4">
-            We are <span className="text-[#E50914]">Pixel Pie.</span>
+          <h2 className="text-4xl md:text-6xl font-heading font-extrabold uppercase leading-[0.9] text-white">
+            WE ARE <br /><span className="text-stroke text-stroke-hover transition-colors duration-300">PIXEL PIE.</span>
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            The digital landscape is noisy. Most agencies are busy chasing vanity metrics—likes, views, and fleeting moments. We play a different game. 
-          </p>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            The Pixel Pie Media was built to bridge the gap between high-end visual production and ruthless performance marketing. Whether we are managing a top-tier creator's brand or producing a nationwide campaign for an industry leader, our focus remains absolute: turn attention into measurable business growth.
-          </p>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            We don't just make noise. We build culture.
-          </p>
+          <div className="space-y-6 text-gray-400 text-lg leading-relaxed font-medium border-l-2 border-[#E50914] pl-6">
+            <p>
+              The Pixel Pie Media is built on a foundation of experience, hard work, passion, consistency, and trust.
+            </p>
+            <p>
+              Founded by Rishav Raj, a student at Shri Ram College of Commerce and District Rank 1 holder in Class 12, the journey started with a genuine passion for storytelling and content creation. Over time, this passion evolved through hands-on experience, consistent efforts, and a commitment to delivering meaningful results for brands.
+            </p>
+            <p>
+              At The Pixel Pie Media, we believe great marketing goes beyond visuals — it's about building experiences, creating emotional connections, and leaving a lasting impression. Every project we undertake is driven by strategy, creativity, and trust, ensuring brands don’t just grow — they stand out.
+            </p>
+            <p className="text-white font-bold">
+              Because for us, it’s not just about content — it’s about creating stories, building memories, and growing brands with consistency.
+            </p>
+          </div>
           
-          <div className="mt-8">
+          <div>
             <Link 
               href="/contact" 
-              className="inline-flex items-center gap-2 text-[#E50914] font-bold uppercase tracking-widest hover:text-white transition-colors group"
+              className="inline-flex items-center gap-3 bg-[#E50914] text-white px-8 py-5 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300 group"
             >
-              Work With Us 
+              WORK WITH US 
               <span className="group-hover:translate-x-2 transition-transform duration-300">
                 <ArrowRight size={20} />
               </span>
@@ -90,11 +98,11 @@ export default function AboutPage() {
 
       {/* CORE VALUES */}
       <section>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-heading font-bold uppercase tracking-wider mb-4">
-            How We Operate
+        <div className="mb-16">
+          <p className="text-sm font-bold text-[#E50914] uppercase tracking-widest mb-4">— OUR VALUES</p>
+          <h2 className="text-5xl md:text-7xl font-heading font-extrabold uppercase text-white">
+            HOW WE OPERATE
           </h2>
-          <div className="w-24 h-1 bg-[#E50914] mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -104,16 +112,19 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="bg-white/[0.03] border border-white/10 p-8 rounded-2xl hover:bg-white/[0.05] transition-colors group"
+              transition={{ delay: index * 0.1 }}
+              className="bg-white/[0.02] border border-white/10 p-10 hover:border-[#E50914] transition-colors duration-300 group relative overflow-hidden"
             >
-              <div className="text-[#E50914] mb-6 group-hover:scale-110 transition-transform origin-left duration-300">
+              <div className="absolute top-0 right-0 p-8 text-white/5 font-heading font-extrabold text-8xl group-hover:text-[#E50914]/10 transition-colors duration-500 pointer-events-none">
+                0{index + 1}
+              </div>
+              <div className="text-[#E50914] mb-8 group-hover:scale-110 transition-transform origin-left duration-300 relative z-10">
                 {value.icon}
               </div>
-              <h3 className="text-xl font-heading font-bold uppercase tracking-wide text-white mb-4">
+              <h3 className="text-2xl font-heading font-bold uppercase tracking-wide text-white mb-4 relative z-10">
                 {value.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed text-sm">
+              <p className="text-gray-400 leading-relaxed text-sm relative z-10">
                 {value.desc}
               </p>
             </motion.div>
