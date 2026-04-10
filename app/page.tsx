@@ -270,7 +270,7 @@ export default function Home() {
             <Link href="/work" className="bg-transparent border border-white text-white px-10 py-5 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300">
               SEE OUR WORK
             </Link>
-          </div>
+          </div> 
         </div>
       </section>
 
