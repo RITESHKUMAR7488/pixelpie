@@ -200,16 +200,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. CLIENT MARQUEE */}
+      {/* 5. CLIENT MARQUEE - REBUILT WITH WHITE CARDS */}
       <section className="w-full py-16 bg-[#0A0A0A] overflow-hidden border-b border-white/10">
         <p className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em] mb-10 text-center">
           — TRUSTED BY INDUSTRY LEADERS —
         </p>
         <div className="w-full relative flex overflow-x-hidden">
-          <div className="animate-marquee whitespace-nowrap flex items-center gap-16 px-8">
+          <div className="animate-marquee whitespace-nowrap flex items-center gap-6 px-6">
             {[...clients, ...clients, ...clients].map((client, index) => (
-              <div key={index} className="relative h-16 w-32 flex-shrink-0 opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer">
-                <Image src={`/clients/${client}`} alt="Client Logo" fill className="object-contain drop-shadow-md" />
+              <div 
+                key={index} 
+                className="relative h-20 w-40 flex-shrink-0 bg-white rounded-md flex items-center justify-center p-3 opacity-90 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+              >
+                <div className="relative w-full h-full">
+                  <Image 
+                    src={`/clients/${client}`} 
+                    alt="Client Logo" 
+                    fill 
+                    className="object-contain" 
+                  />
+                </div>
               </div>
             ))}
           </div>
