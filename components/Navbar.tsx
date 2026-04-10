@@ -7,6 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Handle scroll state for navbar styling
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -14,6 +15,20 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { name: "Work", path: "/work" },
@@ -24,55 +39,58 @@ export default function Navbar() {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 py-2" : "bg-transparent py-4"
-      }`}
-    >
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-        
-        {/* LOGO IMAGE */}
-        <Link href="/" className="flex items-center group z-50">
-          <div className="w-48 md:w-56 h-14 flex items-center justify-start group-hover:opacity-80 transition-opacity">
-            <object 
-              data="/ppm_logo_animated.svg" 
-              type="image/svg+xml" 
-              className="w-full h-full object-contain pointer-events-none"
-              aria-label="Pixel Pie Media Logo"
-            />
-          </div>
-        </Link>
-
-        {/* DESKTOP NAVIGATION */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.path}
-              className="text-sm font-bold uppercase tracking-widest text-gray-300 hover:text-[#E50914] transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link 
-            href="/contact" 
-            className="bg-[#E50914] text-white px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-[0_0_15px_rgba(229,9,20,0.3)] hover:shadow-[0_0_25px_rgba(229,9,20,0.5)]"
-          >
-            Contact
+    <>
+      <header 
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          scrolled || isOpen ? "bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 py-2" : "bg-transparent py-4"
+        }`}
+      >
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+          
+          {/* LOGO IMAGE */}
+          <Link href="/" className="flex items-center group z-50" onClick={() => setIsOpen(false)}>
+            <div className="w-48 md:w-56 h-14 flex items-center justify-start group-hover:opacity-80 transition-opacity">
+              <object 
+                data="/ppm_logo_animated.svg" 
+                type="image/svg+xml" 
+                className="w-full h-full object-contain pointer-events-none"
+                aria-label="Pixel Pie Media Logo"
+              />
+            </div>
           </Link>
-        </nav>
 
-        {/* MOBILE MENU BUTTON */}
-        <button 
-          className="md:hidden text-white p-2 z-50 hover:text-[#E50914] transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
+          {/* DESKTOP NAVIGATION */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.path}
+                className="text-sm font-bold uppercase tracking-widest text-gray-300 hover:text-[#E50914] transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link 
+              href="/contact" 
+              className="bg-[#E50914] text-white px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-[0_0_15px_rgba(229,9,20,0.3)] hover:shadow-[0_0_25px_rgba(229,9,20,0.5)]"
+            >
+              Contact
+            </Link>
+          </nav>
+
+          {/* MOBILE MENU BUTTON */}
+          <button 
+            className="md:hidden text-white p-2 z-50 hover:text-[#E50914] transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </header>
 
       {/* MOBILE NAVIGATION OVERLAY */}
+      {/* Placed as a sibling to header to prevent backdrop-filter containment bugs */}
       <div 
         className={`fixed inset-0 bg-[#0A0A0A] z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-500 ease-in-out md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -96,6 +114,6 @@ export default function Navbar() {
           Contact Us
         </Link>
       </div>
-    </header>
+    </>
   );
 }
